@@ -45,7 +45,7 @@ class StarwarsAPI extends RESTDataSource {
 
     async getPersonByName(personName) {
         // Sanitize the person's name for security
-        personName = sanitize(personName)
+        personName = sanitize.keepSpace(personName)
 
         // GET person using their name as a search parameter
         const response = await this.get('people', { search: personName });
