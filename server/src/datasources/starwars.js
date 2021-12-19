@@ -12,12 +12,18 @@ class StarwarsAPI extends RESTDataSource {
         // Empty array to store the data
         let data = []
 
-        // GET people from the API
-        const response = await this.get('people');
+        try {
+            // GET people from the API
+            const response = await this.get('people');
 
-        // Populate the array if we got an array back
-        if (Array.isArray(response.results)) {
-            data = response.results.map(person => this.personReducer(person))
+            // Populate the array if we got an array back
+            if (Array.isArray(response.results)) {
+                data = response.results.map(person => this.personReducer(person))
+            }
+        } catch (error) {
+            if (error.extensions.response.status === 404) {
+                // If we hit this 404 error, we'll leave the data response blank
+            }
         }
 
         // Return the data
@@ -34,12 +40,18 @@ class StarwarsAPI extends RESTDataSource {
         // Empty array to store the data
         let data = []
 
-        // GET people from the API
-        const response = await this.get('people', {page: page_number});
+        try {
+            // GET people from the API
+            const response = await this.get('people', {page: page_number});
 
-        // Populate the array if we got an array back
-        if (Array.isArray(response.results)) {
-            data = response.results.map(person => this.personReducer(person))
+            // Populate the array if we got an array back
+            if (Array.isArray(response.results)) {
+                data = response.results.map(person => this.personReducer(person))
+            }
+        } catch (error) {
+            if (error.extensions.response.status === 404) {
+                // If we hit this 404 error, we'll leave the data response blank
+            }
         }
 
         // Return the data
@@ -53,12 +65,18 @@ class StarwarsAPI extends RESTDataSource {
         // Empty array to store the data
         let data = []
 
-        // GET person using their name as a search parameter
-        const response = await this.get('people', { search: personName });
+        try {
+            // GET person using their name as a search parameter
+            const response = await this.get('people', {search: personName});
 
-        // Populate the array if we got an array back
-        if (Array.isArray(response.results)) {
-            data = response.results.map(person => this.personReducer(person))
+            // Populate the array if we got an array back
+            if (Array.isArray(response.results)) {
+                data = response.results.map(person => this.personReducer(person))
+            }
+        } catch (error) {
+            if (error.extensions.response.status === 404) {
+                // If we hit this 404 error, we'll leave the data response blank
+            }
         }
 
         // Return the data
