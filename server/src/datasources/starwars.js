@@ -43,7 +43,7 @@ class StarwarsAPI extends RESTDataSource {
         return data
     }
 
-    async getPersonByName({ personName }) {
+    async getPersonByName(personName) {
         // Sanitize the person's name for security
         personName = sanitize(personName)
 
