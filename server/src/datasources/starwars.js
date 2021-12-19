@@ -22,6 +22,16 @@ class StarwarsAPI extends RESTDataSource {
         // Return the data
         return data
     }
+
+    personReducer(person) {
+        return {
+            name: person.name,
+            height: person.height,
+            mass: person.mass,
+            gender: person.gender,
+            homeworld: person.homeworld,
+        };
+    }
 }
 
 module.exports = StarwarsAPI;
