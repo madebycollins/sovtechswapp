@@ -28,6 +28,9 @@ class StarwarsAPI extends RESTDataSource {
         // Sanitize the number or default to 1 if a number was not supplied
         page_number = Number.parseInt(page_number) || 1
 
+        // Make sure a page of zero has not been used
+        if (page_number < 1) page_number = 1
+
         // GET people from the API
         const response = await this.get('people', { page: page_number });
 
