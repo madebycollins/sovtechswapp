@@ -17,6 +17,7 @@ const typeDefs = gql`
     type Query {
         "Returns a list of people"
         people(page: Int): [Person]!
+        "Returns data for a single person"
         person(name: String!): [Person]
     }
 `;
