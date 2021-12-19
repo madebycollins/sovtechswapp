@@ -17,7 +17,7 @@ const typeDefs = gql`
     type Query {
         "Returns a list of people"
         people: [Person]!
-        person(name: String!): Person
+        person(name: String!): [Person]
     }
 `;
 

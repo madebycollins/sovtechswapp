@@ -50,8 +50,16 @@ class StarwarsAPI extends RESTDataSource {
         // GET person using their name as a search parameter
         const response = await this.get('people', { search: personName });
 
-        // Return the reduced data
-        return this.personReducer(response.results[0]);
+        // Empty array to store the data
+        let data = []
+
+        // Populate the array if we got an array back
+        if (Array.isArray(response.results)) {
+            data = response.results.map(person => this.personReducer(person))
+        }
+
+        // Return the data
+        return data
     }
 
     personReducer(person) {
