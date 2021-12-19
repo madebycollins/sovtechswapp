@@ -68,10 +68,8 @@ class StarwarsAPI extends RESTDataSource {
         // Increment page count for next page check
         ++page_number
 
-        // Note: Sanitization will be performed by the function being called
+        // Call data for next page
         const next_data = await this.getPeopleByPage(page_number)
-
-        console.log('next_data.length', next_data.length)
 
         // Check if the next set of data is empty & return outcome
         return next_data.length > 0
