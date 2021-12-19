@@ -16,8 +16,8 @@ class StarwarsAPI extends RESTDataSource {
         let data = []
 
         // Populate the array if we got an array back
-        if (Array.isArray(response)) {
-            data = response.map(person => this.personReducer(person))
+        if (Array.isArray(response.results)) {
+            data = response.results.map(person => this.personReducer(person))
         }
 
         // Return the data
@@ -35,8 +35,8 @@ class StarwarsAPI extends RESTDataSource {
         let data = []
 
         // Populate the array if we got an array back
-        if (Array.isArray(response)) {
-            data = response.map(person => this.personReducer(person))
+        if (Array.isArray(response.results)) {
+            data = response.results.map(person => this.personReducer(person))
         }
 
         // Return the data
@@ -51,7 +51,7 @@ class StarwarsAPI extends RESTDataSource {
         const response = await this.get('people', { search: personName });
 
         // Return the reduced data
-        return this.personReducer(response[0]);
+        return this.personReducer(response.results[0]);
     }
 
     personReducer(person) {
