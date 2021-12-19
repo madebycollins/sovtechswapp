@@ -23,6 +23,14 @@ class StarwarsAPI extends RESTDataSource {
         return data
     }
 
+    async getPersonByName({ personName }) {
+        // GET person using their name as a search parameter
+        const response = await this.get('people', { search: personName });
+
+        // Return the reduced data
+        return this.personReducer(response[0]);
+    }
+
     personReducer(person) {
         return {
             name: person.name,
