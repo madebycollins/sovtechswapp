@@ -9,11 +9,11 @@ class StarwarsAPI extends RESTDataSource {
     }
 
     async getAllPeople() {
-        // GET people from the API
-        const response = await this.get('people');
-
         // Empty array to store the data
         let data = []
+
+        // GET people from the API
+        const response = await this.get('people');
 
         // Populate the array if we got an array back
         if (Array.isArray(response.results)) {
@@ -31,11 +31,11 @@ class StarwarsAPI extends RESTDataSource {
         // Make sure a page of zero has not been used
         if (page_number < 1) page_number = 1
 
-        // GET people from the API
-        const response = await this.get('people', { page: page_number });
-
         // Empty array to store the data
         let data = []
+
+        // GET people from the API
+        const response = await this.get('people', {page: page_number});
 
         // Populate the array if we got an array back
         if (Array.isArray(response.results)) {
@@ -50,11 +50,11 @@ class StarwarsAPI extends RESTDataSource {
         // Sanitize the person's name for security
         personName = sanitize.keepSpace(personName)
 
-        // GET person using their name as a search parameter
-        const response = await this.get('people', { search: personName });
-
         // Empty array to store the data
         let data = []
+
+        // GET person using their name as a search parameter
+        const response = await this.get('people', { search: personName });
 
         // Populate the array if we got an array back
         if (Array.isArray(response.results)) {
