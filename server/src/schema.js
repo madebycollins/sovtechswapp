@@ -19,6 +19,7 @@ const typeDefs = gql`
         people(page: Int): [Person]!
         "Returns data for a single person"
         person(name: String!): [Person]
+        people_has_next(page: Int): Boolean!
     }
 `;
 

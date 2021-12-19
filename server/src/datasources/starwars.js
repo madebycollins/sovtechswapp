@@ -58,6 +58,25 @@ class StarwarsAPI extends RESTDataSource {
         return data
     }
 
+    async getPeopleByPageHasNext(page_number){
+        // Sanitize the number or default to 1 if a number was not supplied
+        page_number = Number.parseInt(page_number) || 1
+
+        // Make sure a page of zero has not been used
+        if (page_number < 1) page_number = 1
+
+        // Increment page count for next page check
+        ++page_number
+
+        // Note: Sanitization will be performed by the function being called
+        const next_data = await this.getPeopleByPage(page_number)
+
+        console.log('next_data.length', next_data.length)
+
+        // Check if the next set of data is empty & return outcome
+        return next_data.length > 0
+    }
+
     async getPersonByName(personName) {
         // Sanitize the person's name for security
         personName = sanitize.keepSpace(personName)
