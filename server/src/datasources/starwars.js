@@ -24,6 +24,25 @@ class StarwarsAPI extends RESTDataSource {
         return data
     }
 
+    async getPeopleByPage(page_number) {
+        // Sanitize the number or default to 1 if a number was not supplied
+        page_number = Number.parseInt(page_number) || 1
+
+        // GET people from the API
+        const response = await this.get('people', { page: page_number });
+
+        // Empty array to store the data
+        let data = []
+
+        // Populate the array if we got an array back
+        if (Array.isArray(response)) {
+            data = response.map(person => this.personReducer(person))
+        }
+
+        // Return the data
+        return data
+    }
+
     async getPersonByName({ personName }) {
         // Sanitize the person's name for security
         personName = sanitize(personName)
