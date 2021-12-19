@@ -1,6 +1,6 @@
 module.exports = {
     Query: {
-        people: (_, __, { dataSources }) => dataSources.starwarsAPI.getAllPeople(),
+        people: (_, { page }, { dataSources }) => dataSources.starwarsAPI.getPeopleByPage(page),
         person: (_, { name }, { dataSources }) => dataSources.starwarsAPI.getPersonByName(name),
     }
 };
