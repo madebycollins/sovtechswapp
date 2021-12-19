@@ -1,4 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
+const {sanitize} = require("string-sanitizer");
 
 class StarwarsAPI extends RESTDataSource {
     constructor() {
@@ -24,6 +25,9 @@ class StarwarsAPI extends RESTDataSource {
     }
 
     async getPersonByName({ personName }) {
+        // Sanitize the person's name for security
+        personName = sanitize(personName)
+
         // GET person using their name as a search parameter
         const response = await this.get('people', { search: personName });
 
