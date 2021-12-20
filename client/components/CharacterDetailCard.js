@@ -1,6 +1,6 @@
 export default function CharacterDetailCard(props) {
     return (
-        <div className="card is-8">
+        <div className="card">
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
