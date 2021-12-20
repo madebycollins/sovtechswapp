@@ -32,9 +32,15 @@ export default function Home() {
             <CharacterNameCard key={index} page={page} person={person} />
         ))}
         <nav className="pagination" role="navigation" aria-label="pagination">
-            {page === 1 ? <div /> : <Link href={"/?page=" + (page - 1) }><a className="pagination-previous">Previous</a></Link>}
+            {page === 1
+                ? <div />
+                : <Link href={"/?page=" + (page - 1) }><a className="pagination-previous">Previous</a></Link>}
 
-            {data ? (data.people_has_next ? <Link href={"/?page=" + (page + 1) }><a className="pagination-next">Next page</a></Link> : <div/> ) : <div/>}
+            {data
+                ? (data.people_has_next
+                    ? <Link href={"/?page=" + (page + 1) }><a className="pagination-next">Next page</a></Link>
+                    : <div/> )
+                : <div/>}
         </nav>
     </div>
   )
