@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import { GET_PEOPLE } from "../graphql/queries";
 import CharacterNameCard from "../components/CharacterNameCard";
+import Loader from "../components/Loader";
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import { useEffect } from "react";
@@ -23,7 +24,7 @@ export default function Home() {
         variables: { page },
     });
 
-    if (loading) return ('Loading...');
+    if (loading) return (<Loader />);
     if (error) return (`Error! ${error.message}`);
 
     const style = {

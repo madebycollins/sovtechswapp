@@ -2,13 +2,14 @@ import { useLazyQuery } from "@apollo/client";
 import { GET_PERSON } from "../graphql/queries";
 import { useState } from "react"
 import CharacterNameCard from "../components/CharacterNameCard";
+import Loader from "../components/Loader";
 
 export default function Home() {
     const [value, setValue] = useState("");
 
     const [getPerson, { loading, error, data }] = useLazyQuery(GET_PERSON);
 
-    if (loading) return <p>Loading ...</p>;
+    if (loading) return (<Loader />);
     if (error) return `Error! ${error}`;
 
     const style = {
@@ -31,7 +32,7 @@ export default function Home() {
         // Load data for the relevant user
         getPerson({ variables: { name: value } })
 
-        if (loading) return ('Loading...');
+        if (loading) return (<Loader />);
         if (error) {
             console.log('error', error);
             return (`Error! ${error}`);

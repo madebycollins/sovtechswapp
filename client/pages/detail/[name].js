@@ -5,6 +5,7 @@ import CharacterHero from "../../components/CharacterHero";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from 'react-bulma-components';
+import Loader from "../../components/Loader";
 
 export default function Detail() {
     const [page, setPage] = useState(0)
@@ -22,7 +23,7 @@ export default function Detail() {
         variables: { name },
     });
 
-    if (loading) return ('Loading...');
+    if (loading) return (<Loader />);
     if (error) return (`Error! ${error.message}`);
 
     const style = {

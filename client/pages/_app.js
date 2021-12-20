@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import "../styles/styles.css"
+import "../styles/loader.css"
 import 'bulma/css/bulma.min.css';
 import client from "../graphql/client"
 
