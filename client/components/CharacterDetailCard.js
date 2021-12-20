@@ -1,4 +1,4 @@
-export default function CharacterCard(props) {
+export default function CharacterDetailCard(props) {
     return (
         <div className="card is-8">
             <div className="card-content">
