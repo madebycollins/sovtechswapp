@@ -39,11 +39,13 @@ export default function Home() {
     }
 
     return (
-        <div style={style}>
-            <input className="input" type="text" value={value} onChange={handleChange} placeholder="Search..." />
-            <div style={button_style} className="field is-grouped">
-                <div className="control">
-                    <button className="button is-link" onClick={handleClick}>Submit</button>
+        <div>
+            <div style={style}>
+                <input className="input" type="text" value={value} onChange={handleChange} placeholder="Search..." />
+                <div style={button_style} className="field is-grouped">
+                    <div className="control">
+                        <button className="button is-link" onClick={handleClick}>Submit</button>
+                    </div>
                 </div>
             </div>
 
