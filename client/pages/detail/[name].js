@@ -2,8 +2,17 @@ import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { GET_PERSON } from "../../graphql/queries";
 import CharacterHero from "../../components/CharacterHero";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from 'react-bulma-components';
 
 export default function Detail() {
+    const [page, setPage] = useState(0)
+
+    useEffect(() => {
+        setPage(parseInt(window.sessionStorage.getItem('page')))
+    })
+
     // Get the name value
     const router = useRouter()
     let { name } = router.query
@@ -20,6 +29,10 @@ export default function Detail() {
       width: "50%"
     }
 
+    const buttonStyle = {
+        marginTop: "50px"
+    }
+
     return (
         <div style={style}>
             {data ?
@@ -27,6 +40,11 @@ export default function Detail() {
                     <CharacterHero key={index} person={person} />
                 ))
                 : <div/>}
+            <div className="">
+                <Link href={"/?page=" + page}>
+                    <Button style={buttonStyle} color="">Back</Button>
+                </Link>
+            </div>
         </div>
     )
 }
