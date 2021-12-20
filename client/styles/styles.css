@@ -48,3 +48,8 @@ body {
 .card {
     margin-bottom: 10px;
 }
+
+.pagination-next, .pagination-previous {
+    background-color: gray!important;
+    color: white!important;
+}
