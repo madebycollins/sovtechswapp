@@ -1,1 +1,2 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Starwars Frontend
+Frontend Client built using [Next.js](https://nextjs.org/).
