@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "react-bulma-components";
 export default function CharacterNameCard(props) {
     return (
-            <div className="card is-8">
+            <div style={props.style} className="card is-8">
                 <div className="card-content">
                     <div className="media">
                         <div className="media-content">
