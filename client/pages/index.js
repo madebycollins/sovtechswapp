@@ -3,6 +3,7 @@ import { GET_PEOPLE } from "../graphql/queries";
 import CharacterNameCard from "../components/CharacterNameCard";
 import { useRouter } from 'next/router'
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
     // Get the page value
@@ -11,6 +12,11 @@ export default function Home() {
 
     // Prepare the page number
     page = Number.parseInt(page) || 1
+
+    // Save the page we are working with
+    useEffect(() => {
+        window.sessionStorage.setItem('page', page)
+    })
 
     // Load data for the relevant page
     const { loading, error, data } = useQuery(GET_PEOPLE, {
@@ -23,7 +29,7 @@ export default function Home() {
   return (
     <div className="">
         {data.people.map( (person, index) => (
-            <CharacterNameCard key={index} person={person} />
+            <CharacterNameCard key={index} page={page} person={person} />
         ))}
         <nav className="pagination" role="navigation" aria-label="pagination">
             {page === 1 ? <div /> : <Link href={"/?page=" + (page - 1) }><a className="pagination-previous">Previous</a></Link>}

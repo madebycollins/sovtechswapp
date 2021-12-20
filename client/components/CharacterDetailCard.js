@@ -1,4 +1,12 @@
+import Link from "next/link";
+import { useEffect, useState } from "react";
 export default function CharacterDetailCard(props) {
+    const [page, setPage] = useState(0)
+
+    useEffect(() => {
+        setPage(parseInt(window.sessionStorage.getItem('page')))
+    })
+
     return (
         <div className="card">
             <div className="card-content">
@@ -19,7 +27,7 @@ export default function CharacterDetailCard(props) {
                     <br />
                 </div>
                 <div className="">
-                    Footer
+                    <Link href={"/?page=" + page}>Back</Link>
                 </div>
             </div>
         </div>
