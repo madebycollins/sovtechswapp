@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { GET_PEOPLE } from "../graphql/queries";
 import CharacterNameCard from "../components/CharacterNameCard";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 export default function Home() {
     // Get the page value
@@ -25,9 +26,9 @@ export default function Home() {
             <CharacterNameCard key={index} person={person} />
         ))}
         <nav className="pagination" role="navigation" aria-label="pagination">
-            {page === 1 ? <div /> : <a className="pagination-previous">Previous</a>}
+            {page === 1 ? <div /> : <Link href={"/?page=" + (page - 1) }><a className="pagination-previous">Previous</a></Link>}
 
-            {data ? (data.people_has_next ? <a className="pagination-next">Next page</a> : <div/> ) : <div/>}
+            {data ? (data.people_has_next ? <Link href={"/?page=" + (page + 1) }><a className="pagination-next">Next page</a></Link> : <div/> ) : <div/>}
         </nav>
     </div>
   )
