@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { GET_PEOPLE } from "../graphql/queries";
-import CharacterDetailCard from "../components/CharacterDetailCard";
+import CharacterNameCard from "../components/CharacterNameCard";
 import { useRouter } from 'next/router'
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="">
         {data.people.map( (person, index) => (
-            <CharacterDetailCard key={index} person={person} />
+            <CharacterNameCard key={index} person={person} />
         ))}
         <nav className="pagination" role="navigation" aria-label="pagination">
             <a className="pagination-previous">Previous</a>

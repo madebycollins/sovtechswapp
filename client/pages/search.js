@@ -1,7 +1,7 @@
 import { useLazyQuery } from "@apollo/client";
 import { GET_PERSON } from "../graphql/queries";
 import { useState } from "react"
-import CharacterDetailCard from "../components/CharacterDetailCard";
+import CharacterNameCard from "../components/CharacterNameCard";
 
 export default function Home() {
     const [value, setValue] = useState("");
@@ -52,7 +52,7 @@ export default function Home() {
             <br />
             {data ?
                 data.person.map( (person, index) => (
-                    <CharacterDetailCard key={index} person={person} />
+                    <CharacterNameCard key={index} person={person} />
                 ))
                 : <div/>}
         </div>
