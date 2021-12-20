@@ -4,18 +4,18 @@ export default function CharacterCard(props) {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                        <p className="title is-4">{props.person.name}</p>
+                        <p className="title is-4 card-content--name">{props.person.name}</p>
                     </div>
                 </div>
 
                 <div className="content">
-                    <a>Height</a>: {props.person.height}
+                    <a className="content--height">Height</a>: {props.person.height}
                     <br />
-                    <a>Mass</a>: {props.person.mass}
+                    <a className="content--mass">Mass</a>: {props.person.mass}
                     <br />
-                    <a>Gender</a>: {props.person.gender}
+                    <a className="content--gender">Gender</a>: {props.person.gender}
                     <br />
-                    <a>Home World</a>: {props.person.homeworld}
+                    <a className="content--homeworld">Home World</a>: {props.person.homeworld}
                     <br />
                 </div>
                 <div className="">
