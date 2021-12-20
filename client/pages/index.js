@@ -31,7 +31,11 @@ export default function Home() {
     }
 
     const cardStyle = {
-        width: "300px"
+        width: "300px",
+        marginTop: "10px",
+        marginBottom: "10px",
+        marginLeft: "2px",
+        marginRight: "2px"
     }
 
     const cardGridStyle = {
@@ -40,7 +44,7 @@ export default function Home() {
         flexDirection: "row",
         flexWrap: "wrap",
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "flex-start"
     }
 
   return (
