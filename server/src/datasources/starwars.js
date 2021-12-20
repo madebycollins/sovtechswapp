@@ -77,7 +77,15 @@ class StarwarsAPI extends RESTDataSource {
 
     async getPersonByName(personName) {
         // Sanitize the person's name for security
-        personName = sanitize.keepSpace(personName)
+        // If the name has a '-' symbol, the sanitizer will remove it which we do not want
+        if (personName.includes('-')) {
+            // We will replace the '-' with a ' ' then tell the sanitizer to swap out the ' ' for a '-'
+            // Doing this allows us to still get the benefit of sanitization, but without losing '-' in strings
+            const replaced_string = personName.replace('-', " ")
+            personName = sanitize.addDash(replaced_string)
+        } else {
+            personName = sanitize.keepSpace(personName)
+        }
 
         // Empty array to store the data
         let data = []
