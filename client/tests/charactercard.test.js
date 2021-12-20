@@ -21,7 +21,7 @@ afterEach(() => {
     container = null;
 });
 
-it("renders character data", async () => {
+it("renders character data", () => {
     const fakePerson = {
         "name": "Luke Skywalker",
         "height": "172",
