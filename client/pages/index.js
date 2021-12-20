@@ -25,7 +25,8 @@ export default function Home() {
             <CharacterNameCard key={index} person={person} />
         ))}
         <nav className="pagination" role="navigation" aria-label="pagination">
-            <a className="pagination-previous">Previous</a>
+            {page === 1 ? <div /> : <a className="pagination-previous">Previous</a>}
+
             <a className="pagination-next">Next page</a>
         </nav>
     </div>
