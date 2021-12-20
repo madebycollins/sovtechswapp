@@ -33,6 +33,12 @@ export default function Navbar() {
                             </a>
                         </Link>
 
+                        <Link href="/about">
+                            <a className="navbar-item">
+                                About
+                            </a>
+                        </Link>
+
                     </div>
                 </div>
             </nav>
