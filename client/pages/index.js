@@ -27,7 +27,7 @@ export default function Home() {
         <nav className="pagination" role="navigation" aria-label="pagination">
             {page === 1 ? <div /> : <a className="pagination-previous">Previous</a>}
 
-            <a className="pagination-next">Next page</a>
+            {data ? (data.people_has_next ? <a className="pagination-next">Next page</a> : <div/> ) : <div/>}
         </nav>
     </div>
   )
