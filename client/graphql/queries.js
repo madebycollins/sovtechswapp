@@ -6,6 +6,8 @@ const GET_PEOPLE = gql`
             name
             height
             mass
+            gender
+            homeworld
         }
         people_has_next(page: $page)
     }
@@ -17,6 +19,8 @@ const GET_PERSON = gql`
             name
             height
             mass
+            gender
+            homeworld
         }
     }
 `
