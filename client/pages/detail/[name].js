@@ -33,6 +33,10 @@ export default function Detail() {
         marginTop: "50px"
     }
 
+    const buttonContainer = {
+        display: "grid"
+    }
+
     return (
         <div style={style}>
             {data ?
@@ -40,7 +44,7 @@ export default function Detail() {
                     <CharacterHero key={index} person={person} />
                 ))
                 : <div/>}
-            <div className="">
+            <div style={buttonContainer}>
                 <Link href={"/?page=" + page}>
                     <Button style={buttonStyle} color="">Back</Button>
                 </Link>
