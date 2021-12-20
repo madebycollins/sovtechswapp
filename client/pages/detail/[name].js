@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { GET_PERSON } from "../../graphql/queries";
-import CharacterDetailCard from "../../components/CharacterDetailCard";
+import CharacterHero from "../../components/CharacterHero";
 
 export default function Detail() {
     // Get the name value
@@ -16,11 +16,15 @@ export default function Detail() {
     if (loading) return ('Loading...');
     if (error) return (`Error! ${error.message}`);
 
+    const style = {
+      width: "50%"
+    }
+
     return (
-        <div>
+        <div style={style}>
             {data ?
                 data.person.map( (person, index) => (
-                    <CharacterDetailCard key={index} person={person} />
+                    <CharacterHero key={index} person={person} />
                 ))
                 : <div/>}
         </div>
