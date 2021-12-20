@@ -26,11 +26,31 @@ export default function Home() {
     if (loading) return ('Loading...');
     if (error) return (`Error! ${error.message}`);
 
+    const style = {
+      width: "95%"
+    }
+
+    const cardStyle = {
+        width: "300px"
+    }
+
+    const cardGridStyle = {
+        display: "inline-flex",
+        /* width: 80%; */
+        flexDirection: "row",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "space-between"
+    }
+
   return (
-    <div className="">
-        {data.people.map( (person, index) => (
-            <CharacterNameCard key={index} page={page} person={person} />
-        ))}
+    <div style={style} className="">
+        <div style={cardGridStyle}>
+            {data.people.map( (person, index) => (
+                <CharacterNameCard style={cardStyle} key={index} page={page} person={person} />
+            ))}
+        </div>
+
         <nav className="pagination" role="navigation" aria-label="pagination">
             {page === 1
                 ? <div />
