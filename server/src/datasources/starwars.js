@@ -100,13 +100,17 @@ class StarwarsAPI extends RESTDataSource {
         return data
     }
 
-    personReducer(person) {
+    async personReducer(person) {
+
+        // Get data about the world
+        const world_data = await this.get(person.homeworld)
+
         return {
             name: person.name,
             height: person.height,
             mass: person.mass,
             gender: person.gender,
-            homeworld: person.homeworld,
+            homeworld: world_data.name,
         };
     }
 }
